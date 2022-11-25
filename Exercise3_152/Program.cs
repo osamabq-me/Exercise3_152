@@ -16,6 +16,14 @@ namespace Exercise3_152
     class CircularList
     {
         Node LAST;
+
+        public bool ListEmpty()
+        {
+            if (LAST == null)
+                return true;
+            else
+                return false;
+        }
     }
 
     class Program
