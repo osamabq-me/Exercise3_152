@@ -82,7 +82,6 @@ namespace Exercise3_152
                 curr = curr.next;
             }
 
-            // it is first node
             if (curr == LAST)
             {
                 prev = LAST;
@@ -93,7 +92,6 @@ namespace Exercise3_152
                 return true;
             }
 
-            // check if node is last node
             else if (curr.next == LAST)
             {
                 prev.next = LAST;
