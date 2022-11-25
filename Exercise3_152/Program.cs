@@ -84,6 +84,20 @@ namespace Exercise3_152
             }
         }
 
+        public void firstnode()
+        {
+            if (ListEmpty())
+            {
+                Console.WriteLine("\nList is empty");
+            }
+            else
+            {
+                Console.WriteLine("\n The first recorde in the list is:\n\n " +
+                    LAST.next.rollNumber+ "   " + LAST.next.name);
+            }
+
+        }
+
         public bool ListEmpty()
         {
             if (LAST == null)
@@ -98,7 +112,36 @@ namespace Exercise3_152
         static void Main(string[] args)
         {
             CircularList obj = new CircularList();
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("\nMenu");
+                    Console.WriteLine("1. Add a record to the list");
+                    Console.WriteLine("2. View all record in list");
+                    Console.WriteLine("3. View first record in list");
+                    Console.WriteLine("4. Exit\n");
+                    char ch = Convert.ToChar(Console.ReadLine());
+                    switch (ch)
+                    {
+                        case '1':
+                            obj.addnode();
+                            break;
+                        case '2':
+                            obj.traverse();
+                            break;
+                        case '3':
+                            obj.firstnode();
+                            break;
 
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Check for the values entered");
+                }
+
+            }
 
 
         }
