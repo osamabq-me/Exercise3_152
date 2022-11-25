@@ -93,10 +93,23 @@ namespace Exercise3_152
             else
             {
                 Console.WriteLine("\n The first recorde in the list is:\n\n " +
-                    LAST.next.rollNumber+ "   " + LAST.next.name);
+                    LAST.rollNumber+ "   " + LAST.name);
             }
 
         }
+
+
+        public bool Search(int rollNumber, ref Node previous, ref Node current)
+        {
+            previous = current = LAST;
+            while (current != null && rollNumber != current.rollNumber)
+            {
+                previous = current;
+                current = current.next;
+            }
+            return (current != null);
+        }
+
 
         public bool ListEmpty()
         {
@@ -118,9 +131,11 @@ namespace Exercise3_152
                 {
                     Console.WriteLine("\nMenu");
                     Console.WriteLine("1. Add a record to the list");
-                    Console.WriteLine("2. View all record in list");
-                    Console.WriteLine("3. View first record in list");
-                    Console.WriteLine("4. Exit\n");
+                    Console.WriteLine("2. Delete a record in list");
+                    Console.WriteLine("3. View all record in the list");
+                    Console.WriteLine("4. search for a record in list ");
+                    Console.WriteLine("5. Dispaly the first record in list");
+                    Console.WriteLine("6. Exit\n");
                     char ch = Convert.ToChar(Console.ReadLine());
                     switch (ch)
                     {
@@ -131,7 +146,36 @@ namespace Exercise3_152
                             obj.traverse();
                             break;
                         case '3':
+                            obj.traverse();
+                            break;
+                        case '4':
+                            if (obj.ListEmpty()== true)
+                            {
+                                Console.WriteLine("\n List is empty");
+                                break;
+                            }
+                            Node prev, curr;
+                            prev = curr = null;
+                            Console.Write("\nEnter the roll number of the student whoses rocord is to be searched:");
+                            int num = Convert.ToInt32(Console.ReadLine());
+                            if (obj.Search(num, ref prev, ref curr) == false)
+                                Console.WriteLine("\nRecord not found");
+                            else
+                            {
+                                Console.WriteLine("\nRecord found");
+                                Console.WriteLine("\nRoll number" + curr.rollNumber);
+                                Console.WriteLine("\nName:" + curr.name);
+                            }
+                                break;
+                        case '5':
                             obj.firstnode();
+                            break;
+                        case '6':
+                            break;
+                        default:
+                            {
+                                Console.WriteLine("\nInvalid option");
+                            }
                             break;
 
                     }
