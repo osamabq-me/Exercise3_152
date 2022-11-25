@@ -8,6 +8,7 @@ namespace Exercise3_152
 {
     class Node
     {
+        //Create Nodes for the circullar List
         public int rollNumber;
         public string name;
         public Node next;
@@ -17,7 +18,10 @@ namespace Exercise3_152
     {
         Node LAST;
 
-
+        public CircularList()
+        {
+            LAST = null;
+        }
         public void addnode()
         {
             int nim;
