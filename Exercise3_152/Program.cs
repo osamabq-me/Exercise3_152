@@ -29,6 +29,15 @@ namespace Exercise3_152
             Node newNode = new Node();
             newNode.rollNumber = nim;
             newNode.name = nm;
+
+            Node current = LAST;
+            //if the list is empty
+            if (current == null)
+            {
+                newNode.next = newNode;
+                LAST = newNode;
+
+            }
         }
 
 
