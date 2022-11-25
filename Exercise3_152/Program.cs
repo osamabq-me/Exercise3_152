@@ -48,6 +48,17 @@ namespace Exercise3_152
                 newNode.next = LAST;
                 LAST = newNode;
             }
+            //to input the data in the list
+            else
+            {
+                while (current.next != LAST &&
+                    current.next.rollNumber < newNode.rollNumber)
+                    current = current.next;
+
+                newNode.next = current.next;
+                current.next = newNode;
+            }
+
         }
 
 
