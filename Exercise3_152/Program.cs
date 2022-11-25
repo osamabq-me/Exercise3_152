@@ -194,9 +194,11 @@ namespace Exercise3_152
                     switch (ch)
                     {
                         case '1':
+                            //Add node
                             obj.addnode();
                             break;
                         case '2':
+                            //Delete a node
                             {
                                 if (obj.ListEmpty())
                                 {
@@ -215,9 +217,11 @@ namespace Exercise3_152
                             }
                             break;
                         case '3':
+                            // view all nodes in listx
                             obj.traverse();
                             break;
                         case '4':
+                            //Search for node
                             if (obj.ListEmpty()== true)
                             {
                                 Console.WriteLine("\n List is empty");
@@ -237,6 +241,7 @@ namespace Exercise3_152
                             }
                                 break;
                         case '5':
+                            //Display each node
                             obj.firstnode();
                             break;
                         case '6':
