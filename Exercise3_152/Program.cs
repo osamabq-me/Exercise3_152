@@ -17,6 +17,21 @@ namespace Exercise3_152
     {
         Node LAST;
 
+
+        public void addnode()
+        {
+            int nim;
+            string nm;
+            Console.WriteLine("\n Enter the roll number of the students :");
+            nim = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("\n Enter students name");
+            nm = Console.ReadLine();
+            Node newNode = new Node();
+            newNode.rollNumber = nim;
+            newNode.name = nm;
+        }
+
+
         public bool ListEmpty()
         {
             if (LAST == null)
