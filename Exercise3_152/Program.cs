@@ -13,7 +13,10 @@ namespace Exercise3_152
         public Node next;
 
     }
-
+    class CircularList
+    {
+        Node LAST;
+    }
 
     class Program
     {
