@@ -62,6 +62,28 @@ namespace Exercise3_152
         }
 
 
+        public void traverse()
+        {
+            if (ListEmpty())
+            {
+                Console.WriteLine("\nList is empty");
+            }
+            else
+            {
+                Console.WriteLine("\nRecordes in the list are: \n");
+                Node currentNode;
+                currentNode = LAST.next;
+                Console.WriteLine(LAST.rollNumber + " " + LAST.name + "\n");
+                while (currentNode != LAST)
+                {
+                    Console.WriteLine(currentNode.rollNumber + "  " +
+                        currentNode.name + "\n");
+                    currentNode = currentNode.next;
+                }
+
+            }
+        }
+
         public bool ListEmpty()
         {
             if (LAST == null)
@@ -75,6 +97,7 @@ namespace Exercise3_152
     {
         static void Main(string[] args)
         {
+            CircularList obj = new CircularList();
 
 
 
