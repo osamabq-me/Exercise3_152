@@ -62,6 +62,50 @@ namespace Exercise3_152
         }
 
 
+        public bool deleteNode(int rollNumber)
+        {
+
+            if (LAST == null)
+                return false;
+
+            // Find the required node
+            Node curr = LAST, prev = new Node();
+            while (curr.rollNumber != rollNumber)
+            {
+                if (curr.next == LAST)
+                {
+                    Console.Write("\nGiven node is not found in the list!!!");
+                    break;
+                }
+
+                prev = curr;
+                curr = curr.next;
+            }
+
+            // it is first node
+            if (curr == LAST)
+            {
+                prev = LAST;
+                while (prev.next != LAST)
+                    prev = prev.next;
+                LAST = curr.next;
+                prev.next = LAST;
+                return true;
+            }
+
+            // check if node is last node
+            else if (curr.next == LAST)
+            {
+                prev.next = LAST;
+                return true;
+            }
+            else
+            {
+                prev.next = curr.next;
+            }
+            return true;
+        }
+
         public void traverse()
         {
             if (ListEmpty())
@@ -143,7 +187,22 @@ namespace Exercise3_152
                             obj.addnode();
                             break;
                         case '2':
-                            obj.traverse();
+                            {
+                                if (obj.ListEmpty())
+                                {
+                                    Console.WriteLine("\nList is Empty");
+                                    break;
+                                }
+                                Console.Write("\nEnter the roll number of the student " + " whose record is to be deleted:");
+                                int rollNumber = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine();
+                                if (obj.deleteNode(rollNumber) == false)
+                                {
+                                    Console.WriteLine("Record not found");
+                                }
+                                else
+                                    Console.WriteLine("Record with roll number " + rollNumber + " deleted\n");
+                            }
                             break;
                         case '3':
                             obj.traverse();
@@ -163,8 +222,8 @@ namespace Exercise3_152
                             else
                             {
                                 Console.WriteLine("\nRecord found");
-                                Console.WriteLine("\nRoll number" + curr.rollNumber);
-                                Console.WriteLine("\nName:" + curr.name);
+                                Console.WriteLine("\nRoll number " + curr.rollNumber);
+                                Console.WriteLine("\nName: " + curr.name);
                             }
                                 break;
                         case '5':
