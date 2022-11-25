@@ -245,6 +245,7 @@ namespace Exercise3_152
                             obj.firstnode();
                             break;
                         case '6':
+                            Environment.Exit(0);
                             break;
                         default:
                             {
