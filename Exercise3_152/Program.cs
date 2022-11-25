@@ -145,16 +145,21 @@ namespace Exercise3_152
         }
 
 
-        public bool Search(int rollNumber, ref Node previous, ref Node current)
+
+        public bool Search(int rollNo, ref Node previous, ref Node current)
         {
-            previous = current = LAST;
-            while (current != null && rollNumber != current.rollNumber)
+            for (previous = current = LAST.next; current != LAST; 
+                previous = current, current = current.next)
             {
-                previous = current;
-                current = current.next;
+                if (rollNo == current.rollNumber)
+                {
+                    return true;
+                }
             }
-            return (current != null);
+           
+            
         }
+
 
 
         public bool ListEmpty()
