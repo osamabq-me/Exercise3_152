@@ -38,6 +38,16 @@ namespace Exercise3_152
                 LAST = newNode;
 
             }
+            //if the inputed data is  between two nods
+            else if (current.rollNumber >= newNode.rollNumber)
+            {
+                while (current.next != LAST)
+                    current = current.next;
+
+                current.next = newNode;
+                newNode.next = LAST;
+                LAST = newNode;
+            }
         }
 
 
